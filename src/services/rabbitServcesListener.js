@@ -14,13 +14,7 @@ export async function userEvents() {
     try {
         console.log(chalk.blue(' Conectando a RabbitMQ...'));
 
-        const connection = await amqp.connect({
-                    protocol: 'amqp',
-                    hostname: process.env.RABBIT_HOST || 'rabbitmq',
-                    port: 5672,
-                    username: process.env.RABBIT_USER || 'admin',
-                    password: process.env.RABBIT_PASS || 'admin'
-                });
+        const connection = await amqp.connect("amqps://sfnbytcx:mReKqVp2EW9xO1iebiuIpNayQzc-ZTfj@albatross.rmq.cloudamqp.com/sfnbytcx");
 
         const channel = await connection.createChannel();
         const exchange = 'user_event';
